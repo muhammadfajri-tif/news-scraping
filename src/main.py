@@ -1,3 +1,4 @@
+from file import get_filepath, save_to_json
 from utils import get_html_content, get_headlines_news, parse_headlines_news
 
 
@@ -12,6 +13,9 @@ def main():
 
     # parsed headline to dictionary
     parsed_headlines = parse_headlines_news(headlines)
+
+    #save to json file
+    save_to_json(parsed_headlines, get_filepath())
 
 if __name__=="__main__": 
     main()
