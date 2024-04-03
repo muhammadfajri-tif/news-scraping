@@ -46,3 +46,13 @@ def parse_headlines_news(headlines):
 
     return data
 
+def remove_duplicate(data: list, key) -> list:
+    seen_keys = set()
+    new_data = []
+    # loop existing data
+    for d in data:
+        # if current data not available in seen_keys then append it
+        if d[key] not in seen_keys:
+            new_data.append(d)
+            seen_keys.add(d[key])
+    return new_data
