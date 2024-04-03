@@ -7,6 +7,17 @@ def get_filepath():
     dir = os.getcwd()
     return os.path.join(dir, "data", "news.json")
 
+def load_from_json(filepath):
+    data = []
+    try:
+        # load existing data
+        with open(filepath, 'r') as file:
+            data = json.loads(file.read())
+            file.close()
+        return data
+    except IOError:
+        print("[WARN] Failed to load existing data.")
+
 def write_file(data, filepath):
     # write to files
     print("[INFO] saving headline news to data/news.json ...")
