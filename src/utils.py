@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
+def to_date(date: str):
+    return datetime.strptime(date, "%Y-%m-%dT%H:%M:%SZ")
+
 def content_parser(html_el):
     return html_el.text.strip()
 
@@ -38,9 +41,8 @@ def parse_headlines_news(headlines):
             "judul": title,
             "kategori": info.split('-')[0].strip(),
             "waktu_publish": info.split('-')[1].strip(),
-            "waktu_scraping": datetime.now()
+            "waktu_scraping": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
         })
 
     return data
-
 
