@@ -1,5 +1,7 @@
+import re
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 
 def get_html_content(uri):
@@ -17,3 +19,5 @@ def get_html_content(uri):
     else:
         raise Exception(f'[ERRO] Failed to fetch data from {uri} with status code: {url.status_code}. {url.raise_for_status()}')
 
+def get_headlines_news(html_content):
+    return html_content.find_all("div", class_="max-card__title")
