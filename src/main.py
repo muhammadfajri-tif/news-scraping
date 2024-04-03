@@ -1,4 +1,4 @@
-from utils import get_html_content, get_headlines_news
+from utils import get_html_content, get_headlines_news, parse_headlines_news
 
 
 def main():
@@ -10,6 +10,8 @@ def main():
     #get headline news/trending topics
     headlines = get_headlines_news(html_content)
 
+    # parsed headline to dictionary
+    parsed_headlines = parse_headlines_news(headlines)
 
 if __name__=="__main__": 
     main()
